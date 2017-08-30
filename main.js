@@ -51,4 +51,14 @@
             }
         });
     });
+
+    setTimeout(() => {
+        console.log("broadcast test")
+        ws.broadcastUTF(JSON.stringify({
+            alert: true,
+            level: 1,
+            systus: 'earthquake',
+            test: true
+        }));
+    }, 5000)
 })();
