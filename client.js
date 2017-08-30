@@ -5,6 +5,8 @@
 
     const ws = new websocket();
 
+    let reconnectTime = 5*1000;
+
     ws.on('connectFailed', (err) => {
         console.log("Connect Error: "+err.toString());
     });
@@ -19,7 +21,9 @@
         });
 
         connection.on('close', () => {
-            console.log('echo-protocol Connection Closed');
+            console.log('Connection Closed');
+
+            setTimeout(connect, reconnectTime);
         });
 
         connection.on('message', (message) => {
@@ -33,5 +37,8 @@
         });
     });
 
-    ws.connect('ws://127.0.0.1:8080/', 'alert-protocol', 'alert-client');
+    const connect = () => {
+        ws.connect('ws://127.0.0.1:8080/', 'alert-protocol', 'alert-client');
+    };
+    connect();
 })();

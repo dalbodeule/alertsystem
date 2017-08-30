@@ -60,5 +60,5 @@
             systus: 'earthquake',
             test: true
         }));
-    }, 5000)
+    }, 5000);
 })();
