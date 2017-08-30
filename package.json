@@ -1,0 +1,23 @@
+{
+  "name": "alertsystem",
+  "version": "1.0.0",
+  "description": "WebSocket 로 알림 시스템을 한번 만들어봅니다.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/small-sunshines/alertsystem.git"
+  },
+  "author": "small-sunshines",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/small-sunshines/alertsystem/issues"
+  },
+  "homepage": "https://github.com/small-sunshines/alertsystem#readme",
+  "dependencies": {
+    "express": "^4.15.4",
+    "websocket": "^1.0.24"
+  }
+}
