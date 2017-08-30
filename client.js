@@ -9,6 +9,8 @@
 
     ws.on('connectFailed', (err) => {
         console.log("Connect Error: "+err.toString());
+        
+        setTimeout(connect, reconnectTime);
     });
 
     ws.on('connect', (connection) => {

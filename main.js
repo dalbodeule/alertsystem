@@ -5,6 +5,7 @@
     const websocket = require('websocket').server;
     const express = require('express');
     const app = express();
+    const alert = require('./alert.js');
 
     app.all('/', (req, res) => {
         res.jsonp({message: "websocket server is well"}).end();
@@ -53,12 +54,12 @@
     });
 
     setTimeout(() => {
+        let test = new alert();
+        test.level = 1;
+        test.systus = 'earthquake';
+        test.message ='지진 테스트 메세지';
+        test.test = true;
         console.log("broadcast test")
-        ws.broadcastUTF(JSON.stringify({
-            alert: true,
-            level: 1,
-            systus: 'earthquake',
-            test: true
-        }));
+        ws.broadcastUTF(JSON.stringify(test.getAll()));
     }, 5000);
 })();
